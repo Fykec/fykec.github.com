@@ -1,7 +1,6 @@
 ##NSString 的比较排序在，Cocoa中有如下几种方式
 
 ###1. 使用使用数组的sortedArrayUsingComparator 再结合NSString compare 之类的方法，可以指定Option
-```objc    
 
     -(NSArray *)sortedArrayUsingComparator:(NSComparator)cmptr NS_AVAILABLE(10_6, 4_0);
 
@@ -15,7 +14,6 @@
 
     - (NSComparisonResult)compare:(NSString *)string options:(NSStringCompareOptions)mask range:(NSRange)compareRange locale:(id)locale; 
 
-```
 ###option 是比较的规则
 
     enum {
