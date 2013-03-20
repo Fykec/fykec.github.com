@@ -1,8 +1,8 @@
 ##NSString 的比较排序在，Cocoa中有如下几种方式
 
-1. 使用使用数组的sortedArrayUsingComparator 再结合NSString compare 之类的方法，可以指定Option
-
-    - (NSArray *)sortedArrayUsingComparator:(NSComparator)cmptr NS_AVAILABLE(10_6, 4_0);
+###1. 使用使用数组的sortedArrayUsingComparator 再结合NSString compare 之类的方法，可以指定Option
+    
+    -(NSArray *)sortedArrayUsingComparator:(NSComparator)cmptr NS_AVAILABLE(10_6, 4_0);
 
     - (NSArray *)sortedArrayWithOptions:(NSSortOptions)opts usingComparator:(NSComparator)cmptr NS_AVAILABLE(10_6, 4_0);
 
@@ -39,7 +39,7 @@
     };
 
 
-2. 在数组中使用sort方法，再结合string的selector
+###2. 在数组中使用sort方法，再结合string的selector
 
     - (NSArray *)sortedArrayUsingFunction:(NSInteger (*)(id, id, void *))comparator context:(void *)context;
 
@@ -71,7 +71,7 @@
             return NSOrderedSame;
     }
 
->返回比较结果的NSInteger 可以对应
+###返回比较结果的NSInteger 可以对应
 
     enum {
 
@@ -88,9 +88,7 @@
 
 ###而使用sortedArrayUsingSelector 就可以使用到系统提供的自己个默认的slector
 
-
-
-3. 使用数组的descriptor
+###3. 使用数组的descriptor
 
     - (NSArray *)sortedArrayUsingDescriptors:(NSArray *)sortDescriptors;    // returns a new array by sorting the objects of the receiver
 
@@ -130,6 +128,6 @@
     }
     #undef COMPARE
 
->(详细代码参见)[https://github.com/zonble/NSString-CustomCompare/blob/master/NSString%2BCustomCompare/NSString%2BCustomCompare.mm]
+###(详细代码参见)[https://github.com/zonble/NSString-CustomCompare/blob/master/NSString%2BCustomCompare/NSString%2BCustomCompare.mm]
 
 
