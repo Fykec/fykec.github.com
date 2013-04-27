@@ -127,6 +127,7 @@
 	return COMPARE("zh@collation=unihan");
     }
     #undef COMPARE
+    
 
 ###[详细代码参见](https://github.com/zonble/NSString-CustomCompare/blob/master/NSString%2BCustomCompare/NSString%2BCustomCompare.mm)
 
