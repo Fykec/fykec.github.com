@@ -99,7 +99,7 @@ layout: post
 ###而使用sortedArrayUsingSelector 就可以使用到系统提供的自己个默认的slector
 
 ###3. 使用数组的descriptor
-{% highlight Objective-C linenos %}
+{% highlight Ruby linenos %}
     - (NSArray *)sortedArrayUsingDescriptors:(NSArray *)sortDescriptors;    // returns a new array by sorting the objects of the receiver
 
     NSSortDescriptor* sortDesc = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
