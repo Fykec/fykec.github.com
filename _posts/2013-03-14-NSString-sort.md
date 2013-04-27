@@ -5,7 +5,7 @@ layout: post
 ##NSString 的比较排序在，Cocoa中有如下几种方式
 
 ###1. 使用使用数组的sortedArrayUsingComparator 再结合NSString compare 之类的方法，可以指定Option
-
+{% highlight Objective-C linenos %}
     -(NSArray *)sortedArrayUsingComparator:(NSComparator)cmptr NS_AVAILABLE(10_6, 4_0);
 
     - (NSArray *)sortedArrayWithOptions:(NSSortOptions)opts usingComparator:(NSComparator)cmptr NS_AVAILABLE(10_6, 4_0);
@@ -17,9 +17,10 @@ layout: post
     - (NSComparisonResult)compare:(NSString *)string options:(NSStringCompareOptions)mask range:(NSRange)compareRange;
 
     - (NSComparisonResult)compare:(NSString *)string options:(NSStringCompareOptions)mask range:(NSRange)compareRange locale:(id)locale; 
+{% endhighlight %}
 
 ###option 是比较的规则
-
+{% highlight Objective-C linenos %}
     enum {
 
        NSCaseInsensitiveSearch = 1, //忽略大小
@@ -41,18 +42,20 @@ layout: post
        NSRegularExpressionSearch = 1024
 
     };
-
+{% endhighlight %}
 
 ###2. 在数组中使用sort方法，再结合string的selector
-
+{% highlight Objective-C linenos %}
     - (NSArray *)sortedArrayUsingFunction:(NSInteger (*)(id, id, void *))comparator context:(void *)context;
 
     - (NSArray *)sortedArrayUsingFunction:(NSInteger (*)(id, id, void *))comparator context:(void *)context hint:(NSData *)hint;
 
     - (NSArray *)sortedArrayUsingSelector:(SEL)comparator;
+{% endhighlight %}
 
 ###NSString.h
 
+{% highlight Objective-C linenos %}
     - (NSComparisonResult)caseInsensitiveCompare:(NSString *)string;
 
     - (NSComparisonResult)localizedCompare:(NSString *)string;
@@ -60,9 +63,11 @@ layout: post
     - (NSComparisonResult)localizedCaseInsensitiveCompare:(NSString *)string;
 
     - (NSComparisonResult)localizedStandardCompare:(NSString *)string
+{% endhighlight %}
 
 ###sortedArrayUsingFunction传递是参数是函数指针，就不一定是要某个类的selector
 
+{% highlight Objective-C linenos %}
     NSInteger intSort(id num1, id num2, void *context)
     {
         int v1 = [num1 intValue];
@@ -74,9 +79,10 @@ layout: post
         else
             return NSOrderedSame;
     }
+{% endhighlight %}
 
 ###返回比较结果的NSInteger 可以对应
-
+{% highlight Objective-C linenos %}
     enum {
 
        NSOrderedAscending = -1, //由小到达
@@ -87,20 +93,20 @@ layout: post
     };
 
     typedef NSInteger NSComparisonResult;
-
+{% endhighlight %}
 
 
 ###而使用sortedArrayUsingSelector 就可以使用到系统提供的自己个默认的slector
 
 ###3. 使用数组的descriptor
-
+{% highlight Objective-C linenos %}
     - (NSArray *)sortedArrayUsingDescriptors:(NSArray *)sortDescriptors;    // returns a new array by sorting the objects of the receiver
 
     NSSortDescriptor* sortDesc = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
-
+{% endhighlight %}
 
 ###而系统这些API底层是调用ICU库实现的， 而且结合locale的参数可以实现多种不同的比较
-
+{% highlight C linenos %}
     static NSComparisonResult compareStringByPassingLocaleName(NSString *a, NSString *b, const char *localeName)
     {
 	    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:[NSString stringWithUTF8String:localeName]];
@@ -131,7 +137,7 @@ layout: post
 	return COMPARE("zh@collation=unihan");
     }
     #undef COMPARE
-    
+{% endhighlight %}
 
 ###[详细代码参见](https://github.com/zonble/NSString-CustomCompare/blob/master/NSString%2BCustomCompare/NSString%2BCustomCompare.mm)
 
