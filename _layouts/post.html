@@ -2,6 +2,20 @@
 layout: default
 locale: zh-CN
 ---
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang=lang="{% if page.locale %}{{ page.locale }}{% else %}en{% endif %}" lang=lang="{% if page.locale %}{{ page.locale }}{% else %}en{% endif %}">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>{{ page.title }}</title>
+   <meta name="author" content="Jiaji Yin" />
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+</head>
+
 <div id="post">
 {{ content }}
 </div>
