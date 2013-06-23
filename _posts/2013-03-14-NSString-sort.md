@@ -2,6 +2,9 @@
 layout: post
 ---
 
+{{ page.title }}
+================
+
 ##NSString 的比较排序在，Cocoa中有如下几种方式
 
 ###1. 使用使用数组的sortedArrayUsingComparator 再结合NSString compare 之类的方法，可以指定Option
