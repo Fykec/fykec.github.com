@@ -75,14 +75,14 @@ layout: post
 		pandoc -f markdown -t mediawiki ht.md > ht.wiki ＃把ht.md 从markdown 转换成 mediawiki可以识别的格式
 
 
-###其他
+####其他
 
 #####Xcode
 1. Open quickly... CMD＋T 我改成了和textmate一样，很适合输入文件名找文件，用过textmate这个功能肯定很有体会
 2. [Xcode Theme](https://github.com/tursunovic/xcode-themes)
 3. Xcode plugin, [Dash Plugin](https://github.com/omz/Dash-Plugin-for-Xcode)
 
-####Emacs
+#####Emacs
 命令行使用Emacs.app
 
 	alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
