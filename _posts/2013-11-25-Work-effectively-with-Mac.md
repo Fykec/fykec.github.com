@@ -70,8 +70,12 @@ layout: post
 8. [sl](https://github.com/Fykec/sl-mac) 一个输入ls错成sl后会跑火车的程序，我很喜欢
 9. [most](http://www.jedsoft.org/most/) 一个man 的pager，彩色的
 10. [xctool](https://github.com/facebook/xctool) facebook 做的build工具，适合自动打包，搭建daily build
+11. [pandoc](http://johnmacfarlane.net/pandoc/) 文档格式转换工具
 
-####其他
+		pandoc -f markdown -t mediawiki ht.md > ht.wiki ＃把ht.md 从markdown 转换成 mediawiki可以识别的格式
+
+
+###其他
 
 #####Xcode
 1. Open quickly... CMD＋T 我改成了和textmate一样，很适合输入文件名找文件，用过textmate这个功能肯定很有体会
