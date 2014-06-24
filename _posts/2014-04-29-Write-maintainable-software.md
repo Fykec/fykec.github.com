@@ -2,7 +2,7 @@
 layout: post
 ---
 
-{{ 创建可维护的代码 }}
+创建可维护的代码
 ================
 
 1. 尽量少的重复代码， 同样的逻辑的代码包装到函数中去， 一个函数不应该太长，（Fix bug或者更改逻辑时更方便）
@@ -23,5 +23,4 @@ getXX 表示获取， addXX 表示添加，removeXX 表示移除 updateXX 表示
 
 8. 一个类不要太大，比如view 类，子view 太多，要考虑写成多个单独的view，或者用category 分开到不同文件中
 
-
-别人的表述：http://modernperlbooks.com/books/modern_perl_2014/08-perl-style-efficiency.html
+**别人的表述：[Writing Maintainable Perl](http://modernperlbooks.com/books/modern_perl_2014/08-perl-style-efficiency.html)**
