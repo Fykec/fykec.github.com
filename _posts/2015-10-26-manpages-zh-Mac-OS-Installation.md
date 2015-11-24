@@ -1,3 +1,10 @@
+---
+layout: post
+---
+
+{{ page.title }}
+================
+
 # manpages-zh Mac OS Installation
 
 ##Compile
