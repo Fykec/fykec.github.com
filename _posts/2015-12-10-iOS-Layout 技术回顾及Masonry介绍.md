@@ -44,9 +44,9 @@ Layout 是大家经常接触，但却很少去关注的话题。因为用起来�
 ```Objective-C
  - (void)layoutSubviews {
     [super layoutSubviews];
-
     CGSize textSize = [_centerLabel.text sizeWithAttributes:@{NSFontAttributeName: _centerLabel.font}];
-    _centerLabel.frame = CGRectMake((CGRectGetWidth(self.bounds) - textSize.width) / 2, (CGRectGetHeight(self.bounds) - textSize.height) / 2, textSize.width, textSize.height);
+    _centerLabel.frame = CGRectMake((CGRectGetWidth(self.bounds) - textSize.width) / 2, 
+    (CGRectGetHeight(self.bounds) - textSize.height) / 2, textSize.width, textSize.height);
 }
 ```
   
