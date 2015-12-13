@@ -21,7 +21,7 @@ Layout 是大家经常接触，但却很少去关注的话题。因为用起来�
 
 **哪一种更好呢？**
 
-这个是没有固定答案的，哪一种都好，哪一种都不好，好坏是依据情境而定的，因为产品业务不同，技术栈不同，而且人还是有技术偏好的。所以不能从一而论。但是你用没有用好？是看的出来的。技术与熟悉它的人一起配合才会产生好的效果。所以与其说好坏，不如说一种风格，用code 写的人，觉得纯code，看起代码来更容易，方便继承，组合和代码管理。用xib的觉得xib 和 storyboard更直观，调样式更简单。不管选择怎样，对一名开发人员，你是需要明白两种的利弊来做恰当的选择，对一个iOS团队，是需要统一思想的，去发挥一种方式的优点，要建立规则规避缺点的影响。哪怕是两者都用，你也需要去明白，既然你两者优点都想要，那你也会带来维护上复杂度的提升。
+这个是没有固定答案的，哪一种都好，哪一种都不好，好坏是依据情境而定的，因为产品业务不同，技术栈不同，而且人还是有技术偏好的。所以不能从一而论。但是你用没有用好？是看的出来的。技术与熟悉它的人一起配合才会产生好的效果。所以与其说好坏，不如说一种风格，用code 写的人，觉得纯code，看起代码来更容易，方便继承，组合和代码管理。用xib的觉得xib 和 storyboard更直观，调样式更简单。不管选择怎样，对一名开发人员，你是需要明白两种的利弊来做恰当的选择，对一个iOS团队，是需要统一思想的，去发挥一种方式的优点，要建立规则规避缺点的影响，比如用xib之类的文件，很不利于merge，特别是在多人协作的情况下，这个时候有的团队，就是把xib分配到人，一个人维护一部分。哪怕是两者都用，你也需要去明白，既然你两者优点都想要，那你也会带来维护上复杂度的提升。
 
 我是使用纯 code 来写 view 比较多的。但是代码写多了，总会不满足。总觉得不能老是 override layoutSubviews了，于是就会想：
 
@@ -33,7 +33,7 @@ Layout 是大家经常接触，但却很少去关注的话题。因为用起来�
 
 我相信不只有我一个人这么想？还有很多人也是的。但是怎么办呢？
 
-随着iOS平台的发展和成熟，事情出现了转机。iOS 刚开始只有 320 * 480尺寸，后来有了iPad，然后又有了320* 596尺寸，还有@2x @3x 等等。写死 size 的做法已经越来越不好用了。如何采用通用的方法来布局呢？苹果出了一个通用方案Auto Layout。
+随着iOS平台的发展和成熟，事情出现了转机。iOS 刚开始只有 320 * 480尺寸，后来有了iPad，然后又有了320* 596尺寸，还有@2x @3x 等等。而且现在很多App还要适配多语言，不同语言下文字的长度差别可能很大。写死 size 的做法已经越来越不好用了。如何采用通用的方法来布局呢？苹果出了一个通用方案Auto Layout。
 
 以前我们写死固定的 size，origin，现在不能再用固定的数字，否则就没办法统一了。那用什么呢？用**关系**，对于多种size的屏幕，存贮固定的大小，不如存储关系。因为对于同一个界面，很多情况下，子view 在不同的尺寸下的相对关系是不变的。我们存储关系，让程序在运行时去解析这些关系，根据当前的设备算出，该设定的尺寸，这样才能统一。
 
@@ -174,8 +174,7 @@ typedef NS_ENUM(NSInteger, NSLayoutAttribute) {
     ...
     NSLayoutAttributeNotAnAttribute = 0
 };
-```  
-
+```
 
 关于这个基本函数的运算和属性说完了，算式是说完了。但是还没有完。
 
@@ -269,16 +268,16 @@ DSL出场前，让我们先介绍下DSL，DSL是[Domain Specific Language](https
 我找出一些有代表性的，按照程序员偏好的语法风格分下类
 
 1. 陈述命令形式，像说一句话一样
-	1. [Masonry](https://github.com/SnapKit/Masonry)
-	2. [KeepLayout](https://github.com/iMartinKiss/KeepLayout)
+  1. [Masonry](https://github.com/SnapKit/Masonry)
+  2. [KeepLayout](https://github.com/iMartinKiss/KeepLayout)
 2. 还原数学公式，仍然是代入公式计算，但更直观
-	1. [Cartography](https://github.com/robb/Cartography)
-	2. [CompactConstraint](https://github.com/marcoarment/CompactConstraint)
+  1. [Cartography](https://github.com/robb/Cartography)
+  2. [CompactConstraint](https://github.com/marcoarment/CompactConstraint)
 3. Shortcut形式，创造了很多short cut的方法，覆盖了常用的布局需求
-	1. [PureLayout](https://github.com/PureLayout/PureLayout)
-	2. [FLKAutoLayout](https://github.com/floriankugler/FLKAutoLayout)
+  1. [PureLayout](https://github.com/PureLayout/PureLayout)
+  2. [FLKAutoLayout](https://github.com/floriankugler/FLKAutoLayout)
 4. 仿照 CSS 形式，用CSS的语法来做iOS的布局
-	1. [SwiftBox](https://github.com/joshaber/SwiftBox)
+  1. [SwiftBox](https://github.com/joshaber/SwiftBox)
 
 
 大家都可以按照自己的口味选择。但我最终选择了Masonry。
@@ -303,7 +302,7 @@ make.center.equalTo(_centerLabel.superview);
 
 ```
 [_centerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-	make.center.equalTo(_centerLabel.superview);
+  make.center.equalTo(_centerLabel.superview);
 }];
 ```
 
@@ -508,15 +507,13 @@ center可以分为centerX和centerY这里使用centerX， 加上top属性即可
  make.top.equalTo(cell.superview);
 ```
 
-
 #####GridLayout
 
-![](http://i.imgur.com/hVtgbLp.png?1) 
-
-Grid layout 实现起来就复杂一些了，需要我们去算处于哪一行和列, 不断的更新left 和top，
+![](http://i.imgur.com/hVtgbLp.png?1)
+Grid layout 实现起来就复杂一些了，需要我们去算处于哪一行和列, 不断的更新left 和top。
 
 ```
- 	CGFloat cellWidth = 70;
+  CGFloat cellWidth = 70;
     NSInteger countPerRow = 3;
     CGFloat gap = (self.bounds.size.width -  cellWidth * countPerRow) / (countPerRow + 1);
 
@@ -554,7 +551,7 @@ Grid layout 实现起来就复杂一些了，需要我们去算处于哪一行�
 
 ```
 view3.mas_makeConstraints { make in
-	self.animatableConstraints.extend([
+  self.animatableConstraints.extend([
        make.edges.equalTo()(superview).insets()(edgeInsets).priorityLow()(),
    ])
        make.height.equalTo()(view1.mas_height)
@@ -565,7 +562,7 @@ view3.mas_makeConstraints { make in
 ##结尾
 
 
-本文回顾了iOS平台的布局技术的发展，讲述了Auto Layout的技术的由来，Auto Layout 技术的核心，以及相关DSL技术的产生，最后介绍了Masonry这个DSL的使用。至于文章开头提出的三个问题，部分已经有了答案，剩下要看以后的发展了。
+本文回顾了iOS平台的布局技术的发展，讲述了Auto Layout的技术的由来，Auto Layout 技术的核心，以及相关DSL技术的产生，最后介绍了Masonry这个DSL的使用。至于文章开头提出的三个问题，部分已经有了答案，剩下要看以后的发展了。另外像我还没有介绍到的技术，比如 [Size Class](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/AutolayoutPG/WorkingwithSelf-SizingTableViewCells.html#//apple_ref/doc/uid/TP40010853-CH25-SW1)很适合不同大小的设备上使用不同设计的情况，比如同时有iPad和iPhone版本时，使用Size Class可以带来更好的交互体验，限于篇幅就没有介绍。
 
 最后，本文中所有代码都在[github](https://github.com/Fykec/AutoLayoutDemo)上。
 
@@ -579,9 +576,8 @@ view3.mas_makeConstraints { make in
 
 以下是我的博客，我会定期更新 iOS客户端 和 Hybird App开发相关文章。欢迎订阅！
 
-[一个热爱太极的程序员](http://www.taijicoder.com)
+[一个热爱太极的程序员](http://fykec.github.io/)
 
 另外，如果发现本文中有任何谬误，请联系我yinjiaji110@gmail.com，我会及时更正。 谢谢！
 
 
-  [1]: http://i.imgur.com/x4ur7Rk.png?1
