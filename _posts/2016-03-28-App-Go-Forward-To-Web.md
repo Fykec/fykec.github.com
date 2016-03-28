@@ -11,7 +11,7 @@ App的开发，生长于移动互联网时代。手机的无处不在，给了�
 
 未来的App 会更加凸现它**User Interface**这一本质作用。它扮演输出，数据通过它呈现给用户，它是扮演输入，用户的动作，声音，图像，位置等，都会被它接收传递给后端。
 
-在手机上，人们不但是没有降低对互联网可用性的期待，反而是提高了期待。人们在CS（Client-Server）时代和Web时代（Browser-Server）享受过的红利，在Mobile时代，人们依然要求去享受，而且要的更多。所以人们需要App像CS时代一样有native应用该有的易用性，也需要像Web时代一样，拥有网页的及时更新的能力。
+在手机上，人们不会降低对互联网可用性的期待，只会是提高。人们在CS（Client-Server）时代和Web时代（Browser-Server）享受过的红利，在Mobile时代，人们依然要求去享受，而且要的更多。所以人们需要App像CS时代一样有native应用该有的易用性，也需要像Web时代一样，拥有网页的及时更新的能力。
 
 因此这给当下客户端架构，提出以下几点要求
 
@@ -106,7 +106,7 @@ dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
 
 #### 怎样去嵌套
 
-嵌套，怎么更清晰呢？那就不嵌套呗，不浅套怎么办？要把代码铺平。怎么铺平？统一回调函数的接口才能铺平，有了统一的接口，才能方便任务间的结合。
+嵌套，怎么更清晰呢？那就不嵌套呗，不嵌套怎么办？要把代码铺平。怎么铺平？统一回调函数的接口才能铺平，有了统一的接口，才能方便任务间的结合。
 
 拿[Bolts](https://github.com/BoltsFramework/Bolts-iOS)举个例子, 它最初的思想来源自.NET中的[Task Parallel Library](https://en.wikipedia.org/wiki/Parallel_Extensions#Task_Parallel_Library)
 
@@ -143,7 +143,7 @@ dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
 }
 ```
 
-所有回调中需要考虑到的，成功，失败，取消处理，而这些都被统一到了一个BFTask对象中，本来需要把第二个request的处理代码嵌套写在第一个request的回调block中的，通过统一的接口 **continueWithBlock** 返回一个BFTask 对象直接传到下一个处理block了，每个block只需要关心自己面对的BFTask对象既可以，处理好自己的更成功，失败，取消就可以。这样就避免了嵌套。而嵌套的移除，就自然形成了链式结构。
+所有回调中需要考虑到的，成功，失败，取消处理，而这些都被统一到了一个BFTask对象中，本来需要把第二个request的处理代码嵌套写在第一个request的回调block中的，通过统一的接口 **continueWithBlock** 返回一个BFTask 对象直接传到下一个处理block了，每个block只需要关心自己面对的BFTask对象既可以，处理好自己的成功，失败，取消就可以。这样就避免了嵌套。而嵌套的移除，就自然形成了链式结构。
 
 异步任务，除了需要嵌套，还需要合并和转换等，当然这些对于已经形成统一接口的链式结构来说都不在话下。
 
@@ -181,5 +181,5 @@ dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
 
 ## 扩展阅读
 
-[天猫App的动态化配置中心实践](http://www.tuicool.com/articles/ZVjqea3)
-[理解 Promise 的工作原理](https://blog.coding.net/blog/how-do-promises-work)
+1. [天猫App的动态化配置中心实践](http://www.tuicool.com/articles/ZVjqea3)
+2. [理解 Promise 的工作原理](https://blog.coding.net/blog/how-do-promises-work)
