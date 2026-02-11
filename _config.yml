@@ -5,6 +5,9 @@ port:        4000
 baseurl:    /jekyll_demo
 url: http://localhost:4000
 
+# 确保 mic-switch 目录被包含并输出（GitHub Pages 会覆盖 baseurl，根站不受影响）
+include:     [mic-switch]
+
 source:      .
 destination: ./_site
 plugins:     ./_plugins
